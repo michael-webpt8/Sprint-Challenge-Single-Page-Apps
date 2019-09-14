@@ -30,7 +30,9 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 > Answer: Client side routing enables a better user experience after initial load. It then only goes back to the site for json data when needed otherwise it has what is needed to run through the site.
 
 - [ ] What does AJAX stand for?
-  > Answer:
+
+> Answer: Asynchronous JavaScript and XML
+
 - [ ] What are `controlled components` in React?
   > Answer:
 
