@@ -34,7 +34,8 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 > Answer: Asynchronous JavaScript and XML
 
 - [ ] What are `controlled components` in React?
-  > Answer:
+
+  > Answer: When they are part of the virtual DOM and not in the real DOM they are controlled by React thus controlled components.
 
 ## Project Set Up
 
