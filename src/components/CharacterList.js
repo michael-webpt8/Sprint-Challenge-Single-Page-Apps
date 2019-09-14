@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-
-import {Card} from 'react-bootstrap';
+import CharacterCard from './CharacterCard';
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -21,17 +20,7 @@ export default function CharacterList() {
   return (
     <section className='character-list grid-view'>
       {characters.map(character => (
-        <Card key={character.created}>
-          <Card.Img src={character.image} alt={character.name} />
-          <Card.Body>
-            <Card.Title>{character.name}</Card.Title>
-            <Card.Subtitle>
-              {character.species} {character.status}
-            </Card.Subtitle>
-            <Card.Text>Location: {character.location.name}</Card.Text>
-            <Card.Text>Origin: {character.origin.name}</Card.Text>
-          </Card.Body>
-        </Card>
+        <CharacterCard character={character} />
       ))}
     </section>
   );
