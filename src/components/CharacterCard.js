@@ -3,7 +3,7 @@ import React from 'react';
 import {Card} from 'react-bootstrap';
 
 export default function CharacterCard(props) {
-  const {characters} = props;
+  const {character} = props;
   return (
     <Card key={character.created}>
       <Card.Img src={character.image} alt={character.name} />
