@@ -7,9 +7,9 @@ export default function CharacterList() {
   const [episodes, setEpisodes] = useState();
   useEffect(() => {
     axios
-      .get(`https://rickandmortyapi.com/api/episode/?page=1`)
+      .get(`https://rickandmortyapi.com/api/episode/`)
       // res.data.results
-      .then(res => setCharacters(res.data.results))
+      .then(res => setEpisodes(res.data.results))
       .catch(err => console.log(err));
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
@@ -17,5 +17,11 @@ export default function CharacterList() {
   console.log('c', episodes);
   if (!episodes) return <h2>Loading...</h2>;
 
-  return <section className='character-list grid-view'></section>;
+  return (
+    <section className='character-list grid-view'>
+      {episodes.map(episode => {
+        return <EpisodeCard episode={episode} />;
+      })}
+    </section>
+  );
 }
