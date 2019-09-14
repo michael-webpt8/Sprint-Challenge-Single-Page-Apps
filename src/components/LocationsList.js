@@ -9,11 +9,11 @@ export default function LocationsList() {
 
   useEffect(() => {
     axios
-      .get('https://rickandmortyapi.com/api/location/?page=1')
+      .get('https://rickandmortyapi.com/api/location/')
       .then(res => setLocations(res.data.results))
       .catch(err => console.log(err));
   }, []);
-  console.log('l', locations);
+
   if (!locations)
     return (
       <Spinner animation='border' role='status'>
@@ -22,12 +22,9 @@ export default function LocationsList() {
     );
   return (
     <div>
-      <h1>Location Lis</h1>
-      <div>
-        {locations.map(location => {
-          return <LocationCard location={location} />;
-        })}
-      </div>
+      {locations.map(location => {
+        return <LocationCard location={location} />;
+      })}
     </div>
   );
 }

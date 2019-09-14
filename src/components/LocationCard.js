@@ -1,21 +1,13 @@
 import React from 'react';
 import {Card, Spinner} from 'react-bootstrap';
+import styled from 'styled-components';
+export default function LocationCard(props) {
+  const {id, name, type, dimension} = props.location;
 
-export default function LocationCard(
-  props,
-  {
-    id,
-    name,
-    type,
-    dimension
-    // residents
-  }
-) {
-  console.log('LC', props.location);
-  if (!props.props) return <h1>loading..</h1>;
+  if (!props.location) return <h1>loading..</h1>;
 
   return (
-    <Card key={id}>
+    <CardWrapper key={id}>
       <Card.Header>{name}</Card.Header>
       <Card.Body>
         <Card.Text>
@@ -24,6 +16,10 @@ export default function LocationCard(
       </Card.Body>
       {/* <Card.Footer> Residents {residents.length}</Card.Footer> */}
       {/** !!! could not get want to know why !!! */}
-    </Card>
+    </CardWrapper>
   );
 }
+
+const CardWrapper = styled(Card)`
+  margin-bottom: 20px;
+`;
