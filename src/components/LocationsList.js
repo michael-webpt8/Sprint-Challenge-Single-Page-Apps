@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {Spinner} from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
+import styled from 'styled-components';
 
 import LocationCard from './LocationCard';
 
-export default function LocationsList() {
+export default function LocationsList(props) {
   const [locations, setLocations] = useState();
 
   useEffect(() => {
@@ -16,9 +17,11 @@ export default function LocationsList() {
 
   if (!locations)
     return (
-      <Spinner animation='border' role='status'>
-        <span className='sr-only'>Loading...</span>
-      </Spinner>
+      <LocationWrapper>
+        <LoadingSpinner color='primary' animation='border' role='status'>
+          <span className='sr-only'>Loading...</span>
+        </LoadingSpinner>
+      </LocationWrapper>
     );
   return (
     <div>
@@ -28,3 +31,16 @@ export default function LocationsList() {
     </div>
   );
 }
+
+const LocationWrapper = styled(Spinner)`
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45px;
+`;
+
+const LoadingSpinner = styled(Spinner)`
+  width: 4rem;
+  height: 4rem;
+`;
