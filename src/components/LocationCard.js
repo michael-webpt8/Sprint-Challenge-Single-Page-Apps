@@ -1,8 +1,8 @@
 import React from 'react';
-import {Card, Spinner} from 'react-bootstrap';
+import { Card, Spinner } from 'react-bootstrap';
 import styled from 'styled-components';
 export default function LocationCard(props) {
-  const {id, name, type, dimension} = props.location;
+  const { id, name, type, dimension, residents } = props.location;
 
   if (!props.location) return <h1>loading..</h1>;
 
@@ -14,8 +14,7 @@ export default function LocationCard(props) {
           {type} {dimension}
         </Card.Text>
       </Card.Body>
-      {/* <Card.Footer> Residents {residents.length}</Card.Footer> */}
-      {/** !!! could not get want to know why !!! */}
+      <Card.Footer> Residents {residents.length}</Card.Footer>
     </CardWrapper>
   );
 }
