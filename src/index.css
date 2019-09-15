@@ -42,3 +42,17 @@ header h1 {
   display: flex;
   justify-content: center;
 }
+
+.status-dead {
+  color: red;
+  text-decoration: line-through;
+}
+
+.status-living {
+  color: dodgerblue;
+  text-decoration: underline;
+}
+
+.status-unknown {
+  color: grey;
+}

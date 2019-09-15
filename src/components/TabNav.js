@@ -1,8 +1,8 @@
 import React from 'react';
-import {Tab, Menu, Icon} from 'semantic-ui-react';
-import {NavLink} from 'react-router-dom';
-import {Nav} from 'react-bootstrap';
-
+import { Tab, Menu, Icon } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
+import styled from 'styled-components';
 // TODO: Add missing menu/tabs/nav below
 
 // Review Semantic UI Component options for nav-like UI:
@@ -13,7 +13,7 @@ import {Nav} from 'react-bootstrap';
 
 export default function TabNav() {
   return (
-    <Nav justify variant='tabs' defaultActiveKey='/'>
+    <NavSection justify variant='tabs' defaultActiveKey='/'>
       <Nav.Item>
         <NavLink to='/'>Home Page</NavLink>
       </Nav.Item>
@@ -26,6 +26,11 @@ export default function TabNav() {
       <Nav.Item>
         <NavLink to='/episodes'>Episodes</NavLink>
       </Nav.Item>
-    </Nav>
+    </NavSection>
   );
 }
+
+const NavSection = styled(Nav)`
+  padding-top: 15px;
+  margin-bottom: 50px;
+`;
