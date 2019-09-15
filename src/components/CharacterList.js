@@ -1,5 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
+import { Spinner } from 'reactstrap';
+import styled from 'styled-components';
 import CharacterCard from './CharacterCard';
 
 export default function CharacterList() {
@@ -15,7 +18,15 @@ export default function CharacterList() {
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
   }, []);
   console.log('c', characters);
-  if (!characters) return <h2>Loading...</h2>;
+
+  if (!characters)
+    return (
+      <LoadingWrapper>
+        <LoadingSpinner color='primary' animation='border' role='status'>
+          <span className='sr-only'>Loading...</span>
+        </LoadingSpinner>
+      </LoadingWrapper>
+    );
 
   return (
     <section className='character-list grid-view'>
@@ -25,3 +36,16 @@ export default function CharacterList() {
     </section>
   );
 }
+
+const LoadingWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45px;
+`;
+
+const LoadingSpinner = styled(Spinner)`
+  width: 4rem;
+  height: 4rem;
+`;

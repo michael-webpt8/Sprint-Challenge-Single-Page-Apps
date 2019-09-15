@@ -17,11 +17,11 @@ export default function LocationsList(props) {
 
   if (!locations)
     return (
-      <LocationWrapper>
+      <LoadingWrapper>
         <LoadingSpinner color='primary' animation='border' role='status'>
           <span className='sr-only'>Loading...</span>
         </LoadingSpinner>
-      </LocationWrapper>
+      </LoadingWrapper>
     );
   return (
     <div>
@@ -32,7 +32,7 @@ export default function LocationsList(props) {
   );
 }
 
-const LocationWrapper = styled(Spinner)`
+const LoadingWrapper = styled(Spinner)`
   display: flex;
   justify-content: space-evenly;
   margin-left: auto;
