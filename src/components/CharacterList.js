@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { Spinner } from 'react-bootstrap';
+import { Spinner, Row, Col, Container } from 'react-bootstrap';
 import styled from 'styled-components';
 import CharacterCard from './CharacterCard';
 
@@ -29,11 +29,15 @@ export default function CharacterList() {
     );
 
   return (
-    <section className='character-list grid-view'>
-      {characters.map(character => (
-        <CharacterCard character={character} />
-      ))}
-    </section>
+    <Container>
+      <Row>
+        {characters.map(character => (
+          <Col key={character.created} sm='12' md='6' lg='3'>
+            <CharacterCard character={character} />
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Card } from 'react-bootstrap';
+import styled from 'styled-components';
 
 export default function CharacterCard(props) {
   const { character } = props;
@@ -22,7 +23,7 @@ export default function CharacterCard(props) {
   const lifeStatus = livingStatus(character.status);
 
   return (
-    <Card key={character.created}>
+    <CharacterCardDisplay key={character.created}>
       <Card.Img src={character.image} alt={character.name} />
       <Card.Body>
         <Card.Title>{character.name}</Card.Title>
@@ -33,6 +34,12 @@ export default function CharacterCard(props) {
         <Card.Text>Location: {character.location.name}</Card.Text>
         <Card.Text>Origin: {character.origin.name}</Card.Text>
       </Card.Body>
-    </Card>
+    </CharacterCardDisplay>
   );
 }
+
+const CharacterCardDisplay = styled(Card)`
+  margin-bottom: 30px;
+  border: 2px solid grey;
+  border-radius: 10px;
+`;
