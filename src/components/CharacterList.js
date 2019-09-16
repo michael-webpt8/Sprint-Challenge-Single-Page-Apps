@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { Spinner } from 'reactstrap';
+import { Spinner } from 'react-bootstrap';
 import styled from 'styled-components';
 import CharacterCard from './CharacterCard';
 

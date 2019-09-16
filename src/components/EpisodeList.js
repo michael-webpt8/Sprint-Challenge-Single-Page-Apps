@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import EpisodeCard from './EpisodeCard';
-import { Spinner } from 'reactstrap';
+import { Spinner } from 'react-bootstrap';
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
