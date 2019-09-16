@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Spinner } from 'react-bootstrap';
 import styled from 'styled-components';
-
+import { Col, Container, Row } from 'react-bootstrap';
 import LocationCard from './LocationCard';
 
 export default function LocationsList(props) {
@@ -24,11 +24,17 @@ export default function LocationsList(props) {
       </LoadingWrapper>
     );
   return (
-    <div>
-      {locations.map(location => {
-        return <LocationCard location={location} />;
-      })}
-    </div>
+    <Container>
+      <Row>
+        {locations.map(location => {
+          return (
+            <Col sm='12' md='6' lg='3'>
+              <LocationCard location={location} />;
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
   );
 }
 

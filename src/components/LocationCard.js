@@ -8,17 +8,33 @@ export default function LocationCard(props) {
 
   return (
     <CardWrapper key={id}>
-      <Card.Header>{name}</Card.Header>
       <Card.Body>
+        <Card.Text>{name}</Card.Text>
         <Card.Text>
           {type} {dimension}
         </Card.Text>
       </Card.Body>
-      <Card.Footer> Residents {residents.length}</Card.Footer>
+      <FooterText>
+        {' '}
+        <ResidentCount>Residents {residents.length}</ResidentCount>
+      </FooterText>
     </CardWrapper>
   );
 }
 
 const CardWrapper = styled(Card)`
   margin-bottom: 20px;
+  width: 50%;
+`;
+
+const FooterText = styled(Card.Text)`
+  text-align: right;
+  padding: 5px;
+`;
+
+const ResidentCount = styled.span`
+  background-color: lightgray;
+  margin-right: -6px;
+  margin-bottom: -1px;
+  padding: 10px 10px 6px 10px;
 `;

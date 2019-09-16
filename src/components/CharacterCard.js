@@ -6,8 +6,6 @@ import styled from 'styled-components';
 export default function CharacterCard(props) {
   const { character } = props;
 
-  const { status } = character;
-
   function livingStatus(status) {
     let mortalityStatus = '';
     if (status === 'Alive') {
