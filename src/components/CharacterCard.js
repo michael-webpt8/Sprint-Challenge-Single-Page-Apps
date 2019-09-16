@@ -4,10 +4,8 @@ import { Card } from 'react-bootstrap';
 
 export default function CharacterCard(props) {
   const { character } = props;
-  console.log('c', character);
 
   const { status } = character;
-  console.log('S', status);
 
   function livingStatus(status) {
     let mortalityStatus = '';
@@ -20,8 +18,6 @@ export default function CharacterCard(props) {
     }
     return mortalityStatus;
   }
-
-  console.log();
 
   const lifeStatus = livingStatus(character.status);
 
