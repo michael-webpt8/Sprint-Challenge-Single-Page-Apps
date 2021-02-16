@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
-import { Spinner, Row, Col, Container } from 'react-bootstrap';
 import styled from 'styled-components';
-import CharacterCard from './CharacterCard';
+import EpisodeCard from './EpisodeCard';
+import { Spinner } from 'react-bootstrap';
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
-  const [characters, setCharacters] = useState();
+  const [episodes, setEpisodes] = useState();
   useEffect(() => {
     axios
-      .get(`https://rickandmortyapi.com/api/character/?page=1`)
+      .get(`https://rickandmortyapi.com/api/episode/`)
       // res.data.results
-      .then(res => setCharacters(res.data.results))
+      .then(res => setEpisodes(res.data.results))
       .catch(err => console.log(err));
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
   }, []);
-  console.log('c', characters);
 
-  if (!characters)
+  if (!episodes)
     return (
       <LoadingWrapper>
         <LoadingSpinner color='primary' animation='border' role='status'>
@@ -29,15 +27,11 @@ export default function CharacterList() {
     );
 
   return (
-    <Container>
-      <Row>
-        {characters.map(character => (
-          <Col key={character.created} sm='12' md='6' lg='3'>
-            <CharacterCard character={character} />
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    <section className='character-list grid-view'>
+      {episodes.map(episode => {
+        return <EpisodeCard episode={episode} />;
+      })}
+    </section>
   );
 }
 

@@ -27,8 +27,8 @@ main {
 .grid-view div.card.ui {
   margin: 1.25rem;
 }
-/*
-.main-img {
+
+/* .main-img {
   display: block;
   border-radius: 100%;
   margin: 0 auto;
@@ -36,4 +36,23 @@ main {
 
 header h1 {
   text-align: center;
+}
+
+.welcome-page {
+  display: flex;
+  justify-content: center;
+}
+
+.status-dead {
+  color: red;
+  text-decoration: line-through;
+}
+
+.status-living {
+  color: dodgerblue;
+  text-decoration: underline;
+}
+
+.status-unknown {
+  color: grey;
 }

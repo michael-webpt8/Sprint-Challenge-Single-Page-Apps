@@ -1,16 +1,31 @@
-import React from "react";
+import React from 'react';
+import Header from './Header';
+import { Link } from 'react-router-dom';
+import { Card } from 'reactstrap';
+import styled from 'styled-components';
 
 export default function WelcomePage() {
   return (
-    <section className="welcome-page">
+    <WelcomeWrapper className='welcome-page'>
       <header>
-        <h1>Welcome to the ultimate fan site!</h1>
-        <img
-          className="main-img ui centered medium circular image"
-          src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-          alt="rick"
-        />
+        <WelcomeH1>Welcome to the ultimate fan site!</WelcomeH1>
+        <Link to='/characters'>
+          <img
+            className='main-img ui centered medium circular image'
+            src='https://rickandmortyapi.com/api/character/avatar/1.jpeg'
+            alt='rick'
+          />
+        </Link>
       </header>
-    </section>
+    </WelcomeWrapper>
   );
 }
+
+const WelcomeWrapper = styled.section`
+  margin-top: 35px;
+`;
+
+const WelcomeH1 = styled.h1`
+  color: #97d7d7;
+  font-size: 3.2rem;
+`;
